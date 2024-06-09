@@ -12,6 +12,8 @@ import { Character } from '../../models/character.interface';
 export class CharacterComponent implements OnInit {
 
   character: Character | undefined;
+  showAllDetails: boolean = false;
+  episodePanelState: boolean = false;
 
   constructor(
     private charactersService: CharactersService,
@@ -28,6 +30,7 @@ export class CharacterComponent implements OnInit {
 
           if (character) {
             this.character = character;
+            console.log(this.character);
           } else {
             this.router.navigateByUrl('/');
           }

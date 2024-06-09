@@ -1,15 +1,47 @@
 <div class="container mt-5">
     <div *ngIf="character" class="row animate__animated animate__bounce animate__fadeIn">
         <div class="col-md-9">
-            <p><strong>Identifier:</strong> {{character.id}}</p>
-            <p><strong>Name:</strong> {{character.name}}</p>
-            <p><strong>Gender:</strong> {{character.gender}}</p>
-            <p><strong>Type:</strong> {{character.type}}</p>
-            <p><strong>Status-Specie:</strong> {{character.status}} - {{character.species}}</p>
-            <p><strong>Last known location:</strong> {{character.location.name}}</p>
-            <p><strong>First seen in:</strong> {{character.origin.name}}</p>
-            <!--<p><strong>Episodes:</strong> {{character.episode}}</p>-->
-            <img src="{{character.image}}" style="width: 80%; height: 60%;" alt="" class="rounded">
+            <h1>{{ character.name }}</h1>
+
+            <div>
+                <img src="{{character.image}}" style="width: 80%; height: 60%;" alt="" class="rounded">
+            </div>
+
+            <button *ngIf="!showAllDetails" class="btn btn-primary mt-2" (click)="showAllDetails = true">Show All
+                Details</button>
+
+            <mat-tab-group *ngIf="showAllDetails">
+                <mat-tab label="All details">
+                    <p><strong>Identifier:</strong> {{character.id}}</p>
+                    <p><strong>Gender:</strong> {{character.gender}}</p>
+                    <p><strong>Type:</strong> {{character.type}}</p>
+                    <p><strong>Status-Specie:</strong> {{character.status}} - {{character.species}}</p>
+                    <p><strong>Last known location:</strong> {{character.location.name}}</p>
+                    <p><strong>First seen in:</strong> {{character.origin.name}}</p>
+
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="episodePanelState = true" (closed)="episodePanelState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Episodes
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    All episodes where I appear 
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ng-container *ngIf="character?.episode && character.episode.length > 0">
+                                <div *ngFor="let episodeUrl of character.episode">
+                                    <p><a href="{{ episodeUrl }}" target="_blank">{{ episodeUrl }}</a></p>
+                                </div>
+                            </ng-container>
+                            <div *ngIf="!(character?.episode && character.episode.length > 0)">
+                                <p>No episodes available</p>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </mat-tab>
+            </mat-tab-group>
+
         </div>
 
         <div class="col-md-3">

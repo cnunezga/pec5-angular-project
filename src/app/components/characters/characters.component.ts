@@ -42,12 +42,14 @@ export class CharactersComponent implements OnInit {
   };
 
   nextPage(): void {
+    this.isLoading = true;
     this.currentPage++;
     this.getCharacters(this.currentPage);
   }
 
   previousPage(): void {
     if (this.currentPage > 1) {
+      this.isLoading = true;
       this.currentPage--;
       this.getCharacters(this.currentPage);
     }
