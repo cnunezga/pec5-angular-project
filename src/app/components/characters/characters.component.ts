@@ -14,6 +14,7 @@ export class CharactersComponent implements OnInit {
   characters: Character[] = [];
   currentPage: number = 1;
   viewMode: string = 'cards';
+  isLoading: boolean = true;
 
   constructor(private charactersService: CharactersService) { }
 
@@ -23,7 +24,12 @@ export class CharactersComponent implements OnInit {
 
   getCharacters(page: number): void {
     this.charactersService.getAllCharacters(page)
-      .subscribe((characters) => this.characters = characters);
+      .subscribe((characters) => {
+        setTimeout(() => {
+          this.characters = characters;
+          this.isLoading = false;
+        }, 300);
+      });
   };
 
   nextPage(): void {

@@ -5,6 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatCardModule } from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CharacterComponent } from './components/character/character.component';
 import { GridComponent } from './components/shared/grid/grid.component';
 import { CardComponent } from './components/shared/card/card.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { CardComponent } from './components/shared/card/card.component';
     CharactersComponent,
     CharacterComponent,
     GridComponent,
-    CardComponent
+    CardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { CardComponent } from './components/shared/card/card.component';
     MatCardModule,
     MatGridListModule,
     MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideClientHydration(),
