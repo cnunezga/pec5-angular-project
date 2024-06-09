@@ -2,12 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
 
 import { Character } from '../../models/character.interface';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
-  styleUrl: './characters.component.css'
+  styleUrl: './characters.component.css',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class CharactersComponent implements OnInit {
 
@@ -28,7 +37,7 @@ export class CharactersComponent implements OnInit {
         setTimeout(() => {
           this.characters = characters;
           this.isLoading = false;
-        }, 300);
+        }, 1000);
       });
   };
 

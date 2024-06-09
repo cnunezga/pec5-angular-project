@@ -14,6 +14,7 @@ import { CharacterComponent } from './components/character/character.component';
 import { GridComponent } from './components/shared/grid/grid.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SpinnerComponent } from './components/shared/spinner/spinner.component'
     MatCardModule,
     MatGridListModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),

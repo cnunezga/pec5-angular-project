@@ -21,7 +21,6 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     const identifier = this.activatedRoute.snapshot.paramMap.get('id')
-    console.log('Identifier --> ', identifier);
 
     if (identifier !== null) {
       this.charactersService.getCharacterById(identifier)
@@ -29,9 +28,8 @@ export class CharacterComponent implements OnInit {
 
           if (character) {
             this.character = character;
-            return console.log('character --> ', this.character);
           } else {
-            return this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/');
           }
 
         })
