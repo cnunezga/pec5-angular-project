@@ -1,0 +1,29 @@
+<!--<mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let character of characters" [routerLink]="['/character', character.id]" class="mat-elevation-z2 list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn">
+        <mat-card>
+            <mat-card-header>
+                <div style="width: 100%; padding: 0.5rem;">
+                    <mat-card-title>{{ character.name }}</mat-card-title>
+                </div>
+            </mat-card-header>
+            <img mat-card-image [src]="character.image" alt="{{ character.name }}" style="width: 100%;">
+            <mat-card-content>
+                <p>Description: {{ character.gender }}</p>
+                <p>Likes: {{ character.species }}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>-->
+
+<mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let character of characters" [routerLink]="['/character', character.id]"
+    class="mat-elevation-z2 list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn">
+        <div class="character-tile">
+            <img class="character-image" [src]="character.image" alt="{{ character.name }}">
+            <div class="character-details">
+                <h2>{{ character.name }}</h2>
+                <p>{{ character.status }} - {{ character.species }}</p>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

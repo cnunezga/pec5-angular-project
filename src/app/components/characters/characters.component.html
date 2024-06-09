@@ -1,13 +1,28 @@
 <div class="container">
     <h1>Characters</h1>
-    <ul class="list-group">
-        <a *ngFor="let character of characters" [routerLink]="['/character', character.id]"
-            class="list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn">
-            <b>{{ character.name }}: </b> {{ character.status }}-{{ character.species }}
-        </a>
-    </ul>
+
     <div>
-        <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-        <button class="btn btn-primary" (click)="nextPage()">Next</button>
+        <div class="mb-5">
+            <button class="btn btn-secondary m-2" (click)="setView('cards')">
+                <mat-icon>format_list_bulleted</mat-icon>
+            </button>
+            <button class="btn btn-secondary m-2" (click)="setView('grid')">
+                <mat-icon>grid_view</mat-icon>
+            </button>
+        </div>
+
+        <div *ngIf="viewMode === 'cards'">
+            <app-card *ngFor="let character of characters" [character]="character"></app-card>
+        </div>
+
+        <div *ngIf="viewMode === 'grid'">
+            <app-grid [characters]="characters"></app-grid>
+        </div>
+
+        <div class="mt-5">
+            <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+            <button class="btn btn-primary" (click)="nextPage()">Next</button>
+        </div>
     </div>
+
 </div>

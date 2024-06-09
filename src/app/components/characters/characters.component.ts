@@ -13,14 +13,12 @@ export class CharactersComponent implements OnInit {
 
   characters: Character[] = [];
   currentPage: number = 1;
+  viewMode: string = 'cards';
 
   constructor(private charactersService: CharactersService) { }
 
   ngOnInit(): void {
-    /*this.charactersService
-      .getAllCharacters()
-      .subscribe((characters) => this.characters = characters);*/
-      this.getCharacters(this.currentPage);
+    this.getCharacters(this.currentPage);
   }
 
   getCharacters(page: number): void {
@@ -38,6 +36,10 @@ export class CharactersComponent implements OnInit {
       this.currentPage--;
       this.getCharacters(this.currentPage);
     }
+  }
+
+  setView(view: string): void {
+    this.viewMode = view;
   }
 
 }
