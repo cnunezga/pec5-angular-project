@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+          "https://fonts.gstatic.com/s/roboto/v30/**",
+          "https://fonts.gstatic.com/s/materialicons/**"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/media/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "rickymorty-api",
+      "urls": [
+        "https://rickandmortyapi.com/api/**"
+      ],
+      "cacheConfig": {
+        "maxAge": "1h",
+        "maxSize": 20,
+        "timeout": "5s",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

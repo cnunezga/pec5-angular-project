@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -17,6 +17,7 @@ import { CharacterComponent } from './components/character/character.component';
 import { GridComponent } from './components/shared/grid/grid.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,13 @@ import { SpinnerComponent } from './components/shared/spinner/spinner.component'
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     provideClientHydration(),
