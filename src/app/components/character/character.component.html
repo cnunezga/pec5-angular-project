@@ -3,15 +3,15 @@
         <div class="col-md-9">
             <h1><b>Name: </b>{{ character.name }}</h1>
 
-            <div>
-                <img src="{{character.image}}" style="width: 80%; height: 60%;" alt="" class="rounded">
+            <div class="text-center my-3">
+                <img src="{{character.image}}" style="width: 80%; height: 60%;" alt="" class="rounded img-fluid character-image">
             </div>
 
-            <button *ngIf="!showAllDetails" class="btn btn-primary mt-2" (click)="showAllDetails = true">Show All
+            <button *ngIf="!showAllDetails" class="btn btn-details mt-2 " (click)="showAllDetails = true">Show All
                 Details</button>
 
-            <mat-tab-group *ngIf="showAllDetails">
-                <mat-tab label="All details">
+            <mat-tab-group *ngIf="showAllDetails" class="mt-3">
+                <mat-tab label="All details" class="details">
                     <p><strong>Identifier:</strong> {{character.id}}</p>
                     <p><strong>Gender:</strong> {{character.gender}}</p>
                     <p><strong>Type:</strong> {{character.type}}</p>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="col-md-3">
-            <a routerLink="/" class="btn btn-danger">Back</a>
+            <a routerLink="/" class="btn btn-back">Back</a>
         </div>
     </div>
 </div>

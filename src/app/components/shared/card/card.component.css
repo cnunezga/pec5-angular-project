@@ -3,16 +3,21 @@
     align-items: center;
 }
 
-.character-image {
+.property-image {
     width: 100px;
-    /* ajusta el tamaño según tus necesidades */
-    height: auto;
+    height: 100%;
     margin-right: 16px;
-    /* espacio entre la imagen y el encabezado */
 }
 
-.card-header {
+.property-description {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.property-card {
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
 }

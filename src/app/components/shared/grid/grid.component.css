@@ -6,9 +6,54 @@
     align-items: center;
 }
 
-.character-image {
-    width: 70%;
-    height: auto;
-    border-radius: 4px;
-    margin: 16px;
+.property-card {
+    height: 18em;
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+
+.property-image {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.property-description {
+    background-color: #fafafc;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 0em;
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 0.5em 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.property-card:hover .property-description {
+    height: 0em;
+    padding: 0px 1em;
+}
+
+.property-card:hover .property-image {
+    height: 100%;
+}
+
+.property-image-title {
+    font-size: 2rem;
+    font-weight: 700;
+
+}
+
+.property-card:hover .property-description {
+    opacity: 0;
 }
