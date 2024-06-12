@@ -13,11 +13,11 @@
 
         <app-spinner [isLoading]="isLoading"></app-spinner>
 
-        <div *ngIf="!isLoading && viewMode === 'cards'" [@fadeIn] >
+        <div *ngIf="!isLoading && viewMode === 'cards'" [@fadeIn] class="components">
             <app-card *ngFor="let character of characters" [character]="character"></app-card>
         </div>
 
-        <div *ngIf="!isLoading && viewMode === 'grid'" [@fadeIn]>
+        <div *ngIf="!isLoading && viewMode === 'grid'" [@fadeIn] class="components">
             <app-grid [characters]="characters"></app-grid>
         </div>
 
