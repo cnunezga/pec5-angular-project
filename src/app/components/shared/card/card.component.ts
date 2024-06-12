@@ -10,10 +10,5 @@ import { Router } from '@angular/router';
 export class CardComponent {
   @Input() character!: Character;
 
-
-  constructor(private router: Router) { }
-
-  /*viewCharacter(): void {
-    this.router.navigate(['/character', this.character.id]);
-  }*/
+  constructor() { }
 }

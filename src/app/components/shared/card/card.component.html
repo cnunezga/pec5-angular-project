@@ -2,7 +2,6 @@
     class="mat-elevation-z2 list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn property-card"
     [routerLink]="['/character', character.id]">
     <div class="card-content">
-        <!--<div class="property-image" [style.background-image]="'url(' + character.image + ')'"></div>-->
         <img class="character-image property-image" [src]="character.image" alt="{{ character.name }}">
         <div>
             <mat-card-title>{{ character.name }}</mat-card-title>
